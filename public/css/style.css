@@ -1,22 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Cormorant:wght@700&display=swap');
 body {
+    font-family: "Georgia", serif;
     font-size: 12pt;
 }
 
 p {
-    color: red;
+    color: black;
 }
 
 h1 {
-    font-family: 'Agbalumo';
+    font-weight: bold;
     font-size: 36pt;
+    text-transform: uppercase;
 }
 main, header, footer, nav ul {
-    max-width: 40rem;
+    max-width: 70rem;
     margin: 0 auto 0 auto;
 }
 main {
-    background-color: bisque;
+    padding: 1rem;
+    width: 100%;
 }
 
 /* nav ul li {
@@ -27,18 +30,35 @@ main {
 } */
 
 header {
-    background-image: url("../img/polacks.jpg");
-    background-size: cover;
-    overflow: hidden;
-    width: 100%;
-    height: 200px;
-    opacity: 0.5;
+    margin: 20px auto 0;
+    position: relative; /* för att kunna positionera loggan inuti header */
+    height: 220px;
+    display: flex; /* för att centrera texten */
+    justify-content: center;  /* centrera horisontellt */
+    align-items: center;      /* centrera vertikalt */
+    text-align: center;       /* centrera text inne i h1 */
+}
+
+header::before { /* för att lägga ett mörkt lager över bilden = bättre kontrast, och ::before används för att inte få detta overlay lager över texten också. */
+    content: "";
+    position: absolute;
+    background-image: url("/img/cheese-illustration.jpg");
+    background-size: cover; /* ändrat från contain till cover för att bilden ska täcka hela header */
+    background-position: center 30%; /* ändrat från center center, dvs att övre delen av bild syns */
+    overflow: hidden; /* för att dölja överflödig del av bilden */
+    width:100%;
+    height:100%;
+    opacity: 0.75; /* gör lagret halvtransparent */
+    z-index: 1; /* läggs bakom texten (z=order i InDesign) */
 }
 
 header h1 {
-    width:40rem;
+    position: relative; /* för att texten ska ligga över bilden */
+    z-index: 2; /* läggs över overlay lagret */
     margin: 0 auto;
-    text-align: center;
+    text-transform: none;
+    font-size: 42pt;
+    color:  rgb(122, 63, 27);
 }
 
 nav ul {
@@ -62,3 +82,119 @@ nav li {
     color: green;
     font-weight: bold;
 }
+
+
+.allergi{
+    font-weight: bold;
+    color: #ff5500;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+.question{ /* fråga för forms*/
+    font-weight: bold;
+    color: rgb(247, 240, 217);
+    font-style: italic;
+}
+
+.answer{ /* fråga för forms*/
+    color: rgb(247, 240, 217);
+}
+
+#burgers {
+    background-color: rgb(247, 240, 217);
+    color:rgb(122, 63, 27);
+    padding: 2rem;
+    margin: 20px auto;
+    justify-content: center;
+    border: 3px dashed rgb(122, 63, 27);
+}
+
+.burgerswrapper{
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.burgers img {
+    width: 200px;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+#burgers h1,
+#burgers h2,
+#burgers h3 {
+    text-align: center;
+    letter-spacing: 0.015em;
+    font-family: georgia;
+}
+#burgers p:first-of-type {
+    text-align: center;
+    font-size: 1.2rem;
+     color:rgb(122, 63, 27);
+}
+
+.wrapper {
+     display: grid;
+     grid-gap: 2.5%;
+     grid-template-columns: 32% 32% 32%;
+     justify-content: center;
+ }
+
+ .box {
+     border-radius: 5px;
+     padding: 20px;
+     font-size: 150%;
+     margin-top: 30px;
+     margin-bottom: 30px;
+     border: 3px solid rgb(122, 63, 27);
+ }
+
+
+#contact {
+    background-color:rgb(122, 63, 27);
+    color:rgb(247, 240, 217);
+    padding: 2rem;
+    margin: 20px auto;
+    border: 3px dashed rgb(247, 240, 217);
+}
+
+#place-order {
+    background-color:#ff5500;
+    color:rgb(247, 240, 217);
+    border: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 0.5rem; 
+    padding: 10px;
+    margin: 0px; /*looked better without margin*/
+}
+
+#place-order img {
+    width: 50px;    /* prova 60px, 80px, 100px osv */
+    height: auto;
+}
+
+#place-order:hover {
+    background-color:rgb(122, 63, 27);
+    color:rgb(247, 240, 217);
+    padding: 10px;
+    margin: 0px; /*looked better without margin*/
+
+}
+
+.emphasis {
+    font-style: italic;
+    font-weight: bold;
+    color: #ff5500;
+}
+
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 6vw;
+    }
+} /* testade bara att lägga in denna..., förstår inte riktigt hur funkar lol sorry */
