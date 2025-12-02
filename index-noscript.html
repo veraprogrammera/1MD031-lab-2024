@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+    <title>With cheese, please</title>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <header>
+        <section id="logo">
+            <h1>CheeseBurgerOnline</h1>
+        </section>
+    </header>
+
+    <main> 
+        <section id="burgers"> 
+            <h1>Welcome to the CheeseBurgerOnline</h1>
+            <h2>Our Selection of cheeseburgers</h2>
+
+            <p> How <span class="emphasis">cheesy</span> are you feeling today?</p>
+
+            <div class="burgerswrapper"> 
+                <div class ="wrapper">
+
+                    <div class="burgers">
+                        <div class="box a">
+                            <h3>Cheeseburger <br> <br> </h3>
+                            <img src="/img/Cheeseburger.jpeg">
+                            <p> Cheese is good. </p>
+                            <ul>
+                                <li>Containes <span class="allergi">gluten</span></li>
+                                <li>Containes  <span class="allergi">lactose</span></li>
+                                <li>Containes cheese </li>
+                                <br> <!--  för att få samma höjd på alla boxar */-->
+                            </ul>
+                            </div>
+                    </div>
+
+                    <div class="burgers">
+                        <div class="box b">
+                            <h3>Double Cheeseburger</h3>
+                            <img src="/img/Double Cheeseburger.jpeg">
+                            <p> Cheese is great. </p>
+                            <ul>
+                                <li>Containes <span class="allergi">gluten</span></li>
+                                <li>Containes <span class="allergi">lactose</span></li>
+                                <li>Containes pretty much cheese</li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="burgers">
+                        <div class="box c"> 
+                            <h3>Tripple Cheeseburger</h3>
+                            <img src="/img/Tripple Cheeseburger.jpeg">
+                            <p> Cheese is fantastic. </p>
+                            <ul>
+                                <li>Containes <span class="allergi">gluten</span></li>
+                                <li>Containes <span class="allergi">lactose</span></li>
+                                <li>Containes a lot of cheese</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact"> 
+            <h2>Customer information</h2>
+            <h3>Delivery information:</h3>
+
+            <p>
+                <label for="fullname"><span class="question">Fullname</span></label><br>
+                <input type="text" id="fullname" name="fn" required="required" placeholder="First- and last name">
+            </p>
+
+            <p>
+                <label for="email"><span class="question">E-mail</span></label><br>
+                <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+            </p>
+
+            <p>
+                <label for="street">  <span class="question">Street</span></label><br>
+                <input type="text" id="street" name="st" required="required" placeholder="Street name">
+            </p>
+            <p>
+                <label for="house">  <span class="question">House</span></label><br>
+                <input type="number" id="house" name="hn" required="required" placeholder="House number">
+            </p>
+
+            <p>
+                <label for="paymentmethod"> <span class="question">How would you like to pay?</span></label></label><br>
+                <select id="paymentmethod" name="pm">
+                    <option>Credit/Debit Card</option>
+                    <option>PayPal</option>
+                    <option>Apple Pay</option>
+                    <option>Klarna</option>
+                </select>
+            </p>
+
+            <p> 
+                <span class="question">Gender?</span><br>
+                <label>
+                <input type="radio" name="gender" value="Male"> 
+                <span class="answer">Male</span></label><br>
+                <label>
+                <input type="radio" name="gender" value="Female">
+                <span class="answer">Female</span></label><br>
+                <label>
+                <input type="radio" name="gender" value="Non-binary">
+                <span class="answer">Non-binary</span></label><br>
+                <label>
+                <input type="radio" name="gender" value="Undisclosed"checked>
+                <span class="answer">Undisclosed</span></label><br>
+            </p>
+        </section>
+
+        <button id="place-order" type="submit">
+            <img src="/img/order now button.png">
+            order now!
+        </button>
+    </main>
+    <footer>
+        <p style="font-style: italic;">&copy; 2024 CheeseBurger Inc.</p>
+    </footer>
+
+  </body>
+</html>
