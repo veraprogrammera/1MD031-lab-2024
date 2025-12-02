@@ -1,44 +1,78 @@
 <template>
     <div id="orders">
       <div id="orderList">
-        <div v-for="(order, key) in orders" v-bind:key="'order'+key">
-          #{{ key }}: {{ order.orderItems.join(", ") }}
+        <div v-for="(order, key) in orderList" v-bind:key="'order'+key">
+          #{{ order.orderId}}: {{ formatOrderItems(order.orderItems, order.customerInfo) }}
         </div>
         <button v-on:click="clearQueue">Clear Queue</button>
       </div>
-      <div id="dots">
-          <div v-for="(order, key) in orders" v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}" v-bind:key="'dots' + key">
-            {{ key }}
-          </div>
+
+     <div id="dots">
+     <div v-for="(order, index) in orderList"
+      :key ="'dot' + order.orderId"
+      :style = "{ left: order.details.x + 'px', top: order.details.y + 'px' }"
+      >
+      T
+      </div>
       </div>
     </div>
   </template>
+
   <script>
   import io from 'socket.io-client'
-  const socket = io("localhost:3000");
+  const socket = io("localhost:3000"); // Koppla upp socket mot servern
   
   export default {
     name: 'DispatcherView',
     data: function () {
       return {
-        orders: null,
+        orders: {}
       }
     },
-    created: function () {
-      socket.on('currentQueue', data =>
-        this.orders = data.orders);
-    },
+
+    computed: {
+      orderList(){
+        return Object.values(this.orders || {}) // gör om objekt tilll array
+      }
+      },
+
+    created: function () {     // lyssnar på uppdateringar från servern
+      socket.on('currentQueue', (data) => {
+        console.log('currentQueue data received:', data);
+        this.orders = data.orders || {};
+        });
+      },
+
     methods: {
       clearQueue: function () {
         socket.emit('clearQueue');
       },
       changeStatus: function(orderId) {
-        socket.emit('changeStatus', {orderId: orderId, status: "Annan status"});
+        socket.emit('changeStatus', {orderId, status: "Annan status"});
+      },
 
-      }
-    }
-  }
-  </script>
+    formatOrderItems(orderItems, costumerInfo) {
+      if (!orderItems) return "";
+      // orderItems är objekt: { "Cheeseburger": 2, ... }
+      if (!costumerInfo) return "";
+
+      const orderText = Object.entries(orderItems)
+        .map(([name, qty]) => `${name} (${qty})`)
+        .join(", ");
+      
+      const costumerText = 
+        `${costumerInfo.name}, `+
+        `${costumerInfo.paymentmethod}, `+
+        `${costumerInfo.gender}, `+
+        `${costumerInfo.email}`;
+
+      return `${orderText} - ${costumerText}`;
+       
+  },
+  },
+}
+</script>
+
   <style>
   #orderList {
     top:1em;
@@ -69,5 +103,18 @@
     height:20px;
     text-align: center;
   }
+
+
+#target {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  color: white;
+  background: red;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+}
   </style>
   

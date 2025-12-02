@@ -1,21 +1,23 @@
-[{
-    "name": "Veggie Bliss", 
-    "kCal": 500, 
-    "url": "https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w",
-    "lactose": false, 
-    "gluten": false
-},
-{
-    "name": "Veggie Bliss", 
-    "kCal": 500, 
-    "url": "https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w",
-    "lactose": false, 
-    "gluten": false
-},
-{
-    "name": "Veggie Bliss", 
-    "kCal": 500, 
-    "url": "https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w",
-    "lactose": false, 
-    "gluten": false
-}]
+[
+  {
+    "name": "Cheeseburger",
+    "cheese": "Good level cheese",
+    "url": "Cheeseburger.jpeg",
+    "lactose": true,
+    "gluten": true
+  },
+  {
+    "name": "Double Cheeseburger",
+    "cheese": "Great level cheese",
+    "url": "Double Cheeseburger.jpeg",
+    "lactose": true,
+    "gluten": true
+  },
+  {
+    "name": "Tripple Cheeseburger",
+    "cheese": "Fantastic level cheese",
+    "url": "Tripple Cheeseburger.jpeg",
+    "lactose": true,
+    "gluten": true
+  }
+]
